@@ -57,6 +57,16 @@
 		return date("l F jS Y", $timestamp);
 	}
 	echo longdate(time());
+
+	//Variables estáticas: variable local en una función que mantiene su valor una vez la función acaba
+	function test() {
+		static $count = 0;
+		echo $count;
+		$count++;
+	}
+
+	//Variables SUPERGLOBALES, que son arrays en verdad
+	$origen = $_SERVER['HTTP_REFERER'];
 ?>
 
 <!-- Here's the latest news. -->
