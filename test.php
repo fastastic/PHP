@@ -67,6 +67,38 @@
 
 	//Variables SUPERGLOBALES, que son arrays en verdad
 	$origen = $_SERVER['HTTP_REFERER'];
-?>
+	$origen = htmlentities($_SERVER['HTTP_REFERER']); //Mejor así, ya que evitamos que encuentren xploits a través de las variables superglobales
+	
+	//TEMA 4: Expresiones y control de flujo
 
-<!-- Here's the latest news. -->
+	echo "a: [" . TRUE . "]\n";
+	echo "b: [" . FALSE . "]\n";
+
+	$saldo = 100;
+
+	while ($saldo > 0) {
+		if ($saldo == 100) {
+			print "Tienes $saldo euros\n";
+		}
+		elseif ($saldo != 100) {
+			print "No tienes 100 euros\n";
+		}
+		$saldo = $saldo - 10;
+	}
+	switch($saldo) {
+		case 100:
+			echo "Tienes 100 euros\n";
+			break;
+		case 200:
+			echo "No tienes 100 euros\n";
+			break;
+	}
+
+	for ($count = 1; $count < 10; $count++) {
+		echo "Hola\n";
+	}
+
+	$var = "100";
+	$total = (int) $var - 10;
+	echo $total . "\n";
+?>
